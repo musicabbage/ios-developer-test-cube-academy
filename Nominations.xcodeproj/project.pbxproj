@@ -32,6 +32,7 @@
 		8B5D86612AE8492A00649B28 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86602AE8492A00649B28 /* Logger.swift */; };
 		8B5D86672AE869CC00649B28 /* Authorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86662AE869CC00649B28 /* Authorisation.swift */; };
 		8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B626AB72AE88A09001CF285 /* CubeButton.swift */; };
+		8B5D866C2AE87D6B00649B28 /* HomeEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		8B5D86602AE8492A00649B28 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8B5D86662AE869CC00649B28 /* Authorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorisation.swift; sourceTree = "<group>"; };
 		8B626AB72AE88A09001CF285 /* CubeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeButton.swift; sourceTree = "<group>"; };
+		8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				1BA8D9DD2AE2962B008FBB3F /* Info.plist */,
 				1BA8D9B82AE290D7008FBB3F /* NominationsApp.swift */,
 				1BA8D9BA2AE290D7008FBB3F /* ContentView.swift */,
+				8B5D86682AE87C5400649B28 /* Home */,
 				8B5D865F2AE8450400649B28 /* Common */,
 				8B5D86542AE8210F00649B28 /* Networking */,
 				1B8FA0842AE2B69E009E185D /* Components */,
@@ -184,6 +187,22 @@
 				8B5D86602AE8492A00649B28 /* Logger.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8B5D86682AE87C5400649B28 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8B5D866D2AE8820400649B28 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8B5D866D2AE8820400649B28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +299,7 @@
 				1BA8D9B92AE290D7008FBB3F /* NominationsApp.swift in Sources */,
 				1BA8D9E82AE29B3B008FBB3F /* TextStyle+Styles.swift in Sources */,
 				8B026CD52AE968A200E80CBA /* ButtonBoxView.swift in Sources */,
+				8B5D866C2AE87D6B00649B28 /* HomeEmptyStateView.swift in Sources */,
 				1BA8D9E62AE29AF7008FBB3F /* FontName+Names.swift in Sources */,
 				8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */,
 				1BA8D9CD2AE294B3008FBB3F /* FigmaShadow+Shadows.swift in Sources */,
