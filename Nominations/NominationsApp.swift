@@ -10,9 +10,27 @@ import SwiftUI
 
 @main
 struct NominationsApp: App {
+    
+    @ObservedObject private var router = NominationsRouter()
+    
+    private let networkService = NetworkService(authorisation: .init())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $router.navPath) {
+                HomeView(viewModel: HomeViewModel(networkService: networkService))
+                    .navigationDestination(for: NominationsRouter.Destination.self) { destination in
+                        switch destination {
+                        case .home:
+                            HomeView(viewModel: HomeViewModel(networkService: networkService))
+                        case .NominationForm:
+                            EmptyView()
+                        case .NominationSubmitted:
+                            EmptyView()
+                        }
+                    }
+            }
+            .environmentObject(router)
         }
     }
 }
