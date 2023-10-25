@@ -26,8 +26,10 @@
 		1BA8D9E62AE29AF7008FBB3F /* FontName+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8D9E52AE29AF7008FBB3F /* FontName+Names.swift */; };
 		1BA8D9E82AE29B3B008FBB3F /* TextStyle+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8D9E72AE29B3B008FBB3F /* TextStyle+Styles.swift */; };
 		8B026CD52AE968A200E80CBA /* ButtonBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CD42AE968A200E80CBA /* ButtonBoxView.swift */; };
+		8B026CD72AE970A200E80CBA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CD62AE970A200E80CBA /* HomeView.swift */; };
 		8B026CD92AE970D800E80CBA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CD82AE970D800E80CBA /* HomeViewModel.swift */; };
 		8B026CDE2AE9793100E80CBA /* NominationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CDD2AE9793100E80CBA /* NominationListModel.swift */; };
+		8B026CE02AE980EF00E80CBA /* NominationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CDF2AE980EF00E80CBA /* NominationListCell.swift */; };
 		8B5D86592AE8214A00649B28 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86562AE8214900649B28 /* BaseURL.swift */; };
 		8B5D865A2AE8214A00649B28 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86572AE8214900649B28 /* NetworkService.swift */; };
 		8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */; };
@@ -57,8 +59,10 @@
 		1BA8D9E52AE29AF7008FBB3F /* FontName+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontName+Names.swift"; sourceTree = "<group>"; };
 		1BA8D9E72AE29B3B008FBB3F /* TextStyle+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Styles.swift"; sourceTree = "<group>"; };
 		8B026CD42AE968A200E80CBA /* ButtonBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBoxView.swift; sourceTree = "<group>"; };
+		8B026CD62AE970A200E80CBA /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8B026CD82AE970D800E80CBA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8B026CDD2AE9793100E80CBA /* NominationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationListModel.swift; sourceTree = "<group>"; };
+		8B026CDF2AE980EF00E80CBA /* NominationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationListCell.swift; sourceTree = "<group>"; };
 		8B5D86562AE8214900649B28 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		8B5D86572AE8214900649B28 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleBodyDataForm.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 		8B5D86682AE87C5400649B28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8B026CD62AE970A200E80CBA /* HomeView.swift */,
 				8B026CD82AE970D800E80CBA /* HomeViewModel.swift */,
 				8B5D866D2AE8820400649B28 /* Views */,
 				8B026CDA2AE9710E00E80CBA /* Models */,
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */,
+				8B026CDF2AE980EF00E80CBA /* NominationListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,7 +324,9 @@
 				8B5D866C2AE87D6B00649B28 /* HomeEmptyStateView.swift in Sources */,
 				1BA8D9E62AE29AF7008FBB3F /* FontName+Names.swift in Sources */,
 				8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */,
+				8B026CE02AE980EF00E80CBA /* NominationListCell.swift in Sources */,
 				1BA8D9CD2AE294B3008FBB3F /* FigmaShadow+Shadows.swift in Sources */,
+				8B026CD72AE970A200E80CBA /* HomeView.swift in Sources */,
 				8B5D86592AE8214A00649B28 /* BaseURL.swift in Sources */,
 				8B5D86672AE869CC00649B28 /* Authorisation.swift in Sources */,
 			);
