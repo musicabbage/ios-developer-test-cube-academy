@@ -30,6 +30,7 @@
 		8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */; };
 		8B5D86612AE8492A00649B28 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86602AE8492A00649B28 /* Logger.swift */; };
 		8B5D86672AE869CC00649B28 /* Authorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86662AE869CC00649B28 /* Authorisation.swift */; };
+		8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B626AB72AE88A09001CF285 /* CubeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleBodyDataForm.swift; sourceTree = "<group>"; };
 		8B5D86602AE8492A00649B28 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8B5D86662AE869CC00649B28 /* Authorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorisation.swift; sourceTree = "<group>"; };
+		8B626AB72AE88A09001CF285 /* CubeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				1B8FA0822AE2B69A009E185D /* HeaderBarView.swift */,
 				1B8FA0852AE2BB92009E185D /* NominationsHeaderView.swift */,
+				8B626AB72AE88A09001CF285 /* CubeButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				8B5D865A2AE8214A00649B28 /* NetworkService.swift in Sources */,
 				8B5D86612AE8492A00649B28 /* Logger.swift in Sources */,
+				8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */,
 				1BA8D9BB2AE290D7008FBB3F /* ContentView.swift in Sources */,
 				1B8FA0862AE2BB92009E185D /* NominationsHeaderView.swift in Sources */,
 				1B8FA0832AE2B69A009E185D /* HeaderBarView.swift in Sources */,
