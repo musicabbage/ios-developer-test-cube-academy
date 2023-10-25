@@ -34,7 +34,7 @@ struct TargetAPI {
 }
 
 protocol NetworkServiceProtocol {
-    func request(_ target: TargetAPI) async -> Result<Data, Error>
+    func request<T: Decodable>(_ target: TargetAPI, decode: T.Type) async -> Result<T, Error>
 }
 
 struct NetworkService: NetworkServiceProtocol {
@@ -46,13 +46,12 @@ struct NetworkService: NetworkServiceProtocol {
         self.authorisation = authorisation
     }
     
-    func request(_ target: TargetAPI) async -> Result<Data, Error> {
+    func request<T: Decodable>(_ target: TargetAPI, decode: T.Type) async -> Result<T, Error> {
         let url = target.host.url.appendingPathComponent(target.path)
-        let task = Task { () -> Data in
+        let task = Task { () -> T in
             var request = URLRequest(url: url)
             request.httpMethod = target.method.rawValue.uppercased()
             request.timeoutInterval = target.timeoutInterval
-            //request.httpBody = data
             switch target.schema {
             case .plain:
                 let authToken = await authorisation.authToken()
@@ -67,7 +66,10 @@ struct NetworkService: NetworkServiceProtocol {
                 request.httpBody = form.encode()
             }
             let (data, _) = try await session.data(for: request)
-            return data
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let model = try decoder.decode(T.self, from: data)
+            return model
         }
         
         return await task.result
