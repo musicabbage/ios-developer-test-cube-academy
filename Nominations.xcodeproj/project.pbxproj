@@ -25,6 +25,7 @@
 		1BA8D9E42AE29ACD008FBB3F /* CubeFoundationSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1BA8D9E32AE29ACD008FBB3F /* CubeFoundationSwiftUI */; };
 		1BA8D9E62AE29AF7008FBB3F /* FontName+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8D9E52AE29AF7008FBB3F /* FontName+Names.swift */; };
 		1BA8D9E82AE29B3B008FBB3F /* TextStyle+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8D9E72AE29B3B008FBB3F /* TextStyle+Styles.swift */; };
+		8B026CD52AE968A200E80CBA /* ButtonBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CD42AE968A200E80CBA /* ButtonBoxView.swift */; };
 		8B5D86592AE8214A00649B28 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86562AE8214900649B28 /* BaseURL.swift */; };
 		8B5D865A2AE8214A00649B28 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86572AE8214900649B28 /* NetworkService.swift */; };
 		8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */; };
@@ -52,6 +53,7 @@
 		1BA8D9DD2AE2962B008FBB3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1BA8D9E52AE29AF7008FBB3F /* FontName+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontName+Names.swift"; sourceTree = "<group>"; };
 		1BA8D9E72AE29B3B008FBB3F /* TextStyle+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Styles.swift"; sourceTree = "<group>"; };
+		8B026CD42AE968A200E80CBA /* ButtonBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBoxView.swift; sourceTree = "<group>"; };
 		8B5D86562AE8214900649B28 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		8B5D86572AE8214900649B28 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleBodyDataForm.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				1B8FA0822AE2B69A009E185D /* HeaderBarView.swift */,
 				1B8FA0852AE2BB92009E185D /* NominationsHeaderView.swift */,
 				8B626AB72AE88A09001CF285 /* CubeButton.swift */,
+				8B026CD42AE968A200E80CBA /* ButtonBoxView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				1B8FA0832AE2B69A009E185D /* HeaderBarView.swift in Sources */,
 				1BA8D9B92AE290D7008FBB3F /* NominationsApp.swift in Sources */,
 				1BA8D9E82AE29B3B008FBB3F /* TextStyle+Styles.swift in Sources */,
+				8B026CD52AE968A200E80CBA /* ButtonBoxView.swift in Sources */,
 				1BA8D9E62AE29AF7008FBB3F /* FontName+Names.swift in Sources */,
 				8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */,
 				1BA8D9CD2AE294B3008FBB3F /* FigmaShadow+Shadows.swift in Sources */,
