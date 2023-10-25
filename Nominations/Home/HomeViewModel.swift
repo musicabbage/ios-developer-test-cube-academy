@@ -23,6 +23,9 @@ class HomeViewModel: HomeViewModelProtocol {
     
     init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
+        Task {
+            await fetchNominationList()
+        }
     }
     
     func fetchNominationList() async {

@@ -39,11 +39,6 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
             ButtonBoxView(type: .primary, title: "create NEW NOMINATION") { }
         }
         .background(.cubeLightGrey)
-        .onAppear(perform: {
-            Task {
-                await viewModel.fetchNominationList()
-            }
-        })
     }
 }
 
