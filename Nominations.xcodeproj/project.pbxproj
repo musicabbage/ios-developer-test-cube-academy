@@ -43,6 +43,7 @@
 		8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B626AB72AE88A09001CF285 /* CubeButton.swift */; };
 		8B9641762AEA68EF00614797 /* NomineesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641752AEA68EF00614797 /* NomineesPickerView.swift */; };
 		8B9641792AEA6AFA00614797 /* NomineeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641782AEA6AFA00614797 /* NomineeListModel.swift */; };
+		8B96417B2AEAF9B000614797 /* NominationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96417A2AEAF9B000614797 /* NominationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		8B626AB72AE88A09001CF285 /* CubeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeButton.swift; sourceTree = "<group>"; };
 		8B9641752AEA68EF00614797 /* NomineesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineesPickerView.swift; sourceTree = "<group>"; };
 		8B9641782AEA6AFA00614797 /* NomineeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineeListModel.swift; sourceTree = "<group>"; };
+		8B96417A2AEAF9B000614797 /* NominationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		8B026CE72AE9C65D00E80CBA /* NominationForm */ = {
 			isa = PBXGroup;
 			children = (
+				8B96417A2AEAF9B000614797 /* NominationViewModel.swift */,
 				8B026CEA2AE9CF3700E80CBA /* Views */,
 				8B9641772AEA694000614797 /* Models */,
 			);
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B026CD92AE970D800E80CBA /* HomeViewModel.swift in Sources */,
+				8B96417B2AEAF9B000614797 /* NominationViewModel.swift in Sources */,
 				8B5D865A2AE8214A00649B28 /* NetworkService.swift in Sources */,
 				8B5D86612AE8492A00649B28 /* Logger.swift in Sources */,
 				8B026CEC2AE9CF5000E80CBA /* FormFieldView.swift in Sources */,
