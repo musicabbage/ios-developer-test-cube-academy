@@ -33,6 +33,7 @@
 		8B026CE62AE9C37C00E80CBA /* NominationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CE52AE9C37C00E80CBA /* NominationsRouter.swift */; };
 		8B026CEC2AE9CF5000E80CBA /* FormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CEB2AE9CF5000E80CBA /* FormFieldView.swift */; };
 		8B026CEE2AE9D6DB00E80CBA /* FormTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CED2AE9D6DB00E80CBA /* FormTitleView.swift */; };
+		8B026CF02AE9DC0000E80CBA /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B026CEF2AE9DC0000E80CBA /* RadioButtonView.swift */; };
 		8B5D86592AE8214A00649B28 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86562AE8214900649B28 /* BaseURL.swift */; };
 		8B5D865A2AE8214A00649B28 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86572AE8214900649B28 /* NetworkService.swift */; };
 		8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */; };
@@ -69,6 +70,7 @@
 		8B026CE52AE9C37C00E80CBA /* NominationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationsRouter.swift; sourceTree = "<group>"; };
 		8B026CEB2AE9CF5000E80CBA /* FormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldView.swift; sourceTree = "<group>"; };
 		8B026CED2AE9D6DB00E80CBA /* FormTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTitleView.swift; sourceTree = "<group>"; };
+		8B026CEF2AE9DC0000E80CBA /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
 		8B5D86562AE8214900649B28 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		8B5D86572AE8214900649B28 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleBodyDataForm.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				1B8FA0852AE2BB92009E185D /* NominationsHeaderView.swift */,
 				8B626AB72AE88A09001CF285 /* CubeButton.swift */,
 				8B026CD42AE968A200E80CBA /* ButtonBoxView.swift */,
+				8B026CEF2AE9DC0000E80CBA /* RadioButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				8B026CEC2AE9CF5000E80CBA /* FormFieldView.swift in Sources */,
 				8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */,
 				1BA8D9BB2AE290D7008FBB3F /* ContentView.swift in Sources */,
+				8B026CF02AE9DC0000E80CBA /* RadioButtonView.swift in Sources */,
 				1B8FA0862AE2BB92009E185D /* NominationsHeaderView.swift in Sources */,
 				1B8FA0832AE2B69A009E185D /* HeaderBarView.swift in Sources */,
 				8B026CE62AE9C37C00E80CBA /* NominationsRouter.swift in Sources */,
