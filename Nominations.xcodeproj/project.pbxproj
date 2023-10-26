@@ -41,6 +41,8 @@
 		8B5D86672AE869CC00649B28 /* Authorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86662AE869CC00649B28 /* Authorisation.swift */; };
 		8B5D866C2AE87D6B00649B28 /* HomeEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */; };
 		8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B626AB72AE88A09001CF285 /* CubeButton.swift */; };
+		8B9641762AEA68EF00614797 /* NomineesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641752AEA68EF00614797 /* NomineesPickerView.swift */; };
+		8B9641792AEA6AFA00614797 /* NomineeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641782AEA6AFA00614797 /* NomineeListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		8B5D86662AE869CC00649B28 /* Authorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorisation.swift; sourceTree = "<group>"; };
 		8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyStateView.swift; sourceTree = "<group>"; };
 		8B626AB72AE88A09001CF285 /* CubeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeButton.swift; sourceTree = "<group>"; };
+		8B9641752AEA68EF00614797 /* NomineesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineesPickerView.swift; sourceTree = "<group>"; };
+		8B9641782AEA6AFA00614797 /* NomineeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineeListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				8B026CEA2AE9CF3700E80CBA /* Views */,
+				8B9641772AEA694000614797 /* Models */,
 			);
 			path = NominationForm;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 			children = (
 				8B026CEB2AE9CF5000E80CBA /* FormFieldView.swift */,
 				8B026CED2AE9D6DB00E80CBA /* FormTitleView.swift */,
+				8B9641752AEA68EF00614797 /* NomineesPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,6 +257,14 @@
 				8B026CDF2AE980EF00E80CBA /* NominationListCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8B9641772AEA694000614797 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B9641782AEA6AFA00614797 /* NomineeListModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,9 +366,11 @@
 				8B026CEE2AE9D6DB00E80CBA /* FormTitleView.swift in Sources */,
 				1BA8D9B92AE290D7008FBB3F /* NominationsApp.swift in Sources */,
 				1BA8D9E82AE29B3B008FBB3F /* TextStyle+Styles.swift in Sources */,
+				8B9641792AEA6AFA00614797 /* NomineeListModel.swift in Sources */,
 				8B026CD52AE968A200E80CBA /* ButtonBoxView.swift in Sources */,
 				8B5D866C2AE87D6B00649B28 /* HomeEmptyStateView.swift in Sources */,
 				1BA8D9E62AE29AF7008FBB3F /* FontName+Names.swift in Sources */,
+				8B9641762AEA68EF00614797 /* NomineesPickerView.swift in Sources */,
 				8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */,
 				8B026CE02AE980EF00E80CBA /* NominationListCell.swift in Sources */,
 				1BA8D9CD2AE294B3008FBB3F /* FigmaShadow+Shadows.swift in Sources */,
