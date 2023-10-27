@@ -7,22 +7,31 @@
 //
 
 import Foundation
+import Combine
 
 protocol HomeViewModelProtocol: ObservableObject {
-    var items: [NominationListModel.Item] { get }
+    var items: [NominationDisplayModel] { get }
     
     func fetchNominationList() async
 }
 
 class HomeViewModel: HomeViewModelProtocol {
     
-    @Published var items: [NominationListModel.Item] = []
+    //@Published private var nominationItems: [NominationListModel.Item] = []
+    @Published var items: [NominationDisplayModel] = []
     @Published var errorMessage: String?
     
+    private let nominationListSubject: PassthroughSubject<NominationListModel, Error> = .init()
     private let networkService: NetworkServiceProtocol
+    private let nomineeListManager: NomineesListManager
+    private var cancellable: AnyCancellable?
+    private var nomineesNamesMap: [String: String] = [:]
     
-    init(networkService: NetworkServiceProtocol) {
+    init(networkService: NetworkServiceProtocol, nomineeListManager: NomineesListManager) {
         self.networkService = networkService
+        self.nomineeListManager = nomineeListManager
+        setupBindings()
+
         Task {
             await fetchNominationList()
         }
@@ -31,20 +40,41 @@ class HomeViewModel: HomeViewModelProtocol {
     func fetchNominationList() async {
         let api = TargetAPI(bodySchema: .plain, path: "nomination")
         let result = await networkService.request(api, decode: NominationListModel.self)
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            switch result {
-            case let .success(result):
-                self.items = result.data
-            case let .failure(failure):
-                self.errorMessage = failure.localizedDescription
-            }
+        
+        switch result {
+        case let .success(result):
+            nominationListSubject.send(result)
+        case let .failure(error):
+            nominationListSubject.send(completion: .failure(error))
         }
+        
+    }
+}
+
+private extension HomeViewModel {
+    func setupBindings() {
+        cancellable = Publishers.CombineLatest(nominationListSubject, nomineeListManager.nomineeListPublisher)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                guard case let .failure(error) = completion, let self else { return }
+                
+                self.errorMessage = error.localizedDescription
+            }, receiveValue: { [weak self] nominationsList, nomineesList in
+                guard let self else { return }
+                
+                self.items = nominationsList.data.reduce(into: [NominationDisplayModel](), { partialResult, nominationItem in
+                    guard let nominee = nomineesList.data.first(where: { $0.nomineeId == nominationItem.nomineeId }) else { return }
+                    let displayModel = NominationDisplayModel(nominationId: nominationItem.nominationId,
+                                                              reason: nominationItem.reason,
+                                                              name: "\(nominee.firstName) \(nominee.lastName)")
+                    partialResult.append(displayModel)
+                })
+            })
     }
 }
 
 class HomeViewModel_Preview: HomeViewModelProtocol {
-    @Published var items: [NominationListModel.Item] = []
+    @Published var items: [NominationDisplayModel] = []
     
     func fetchNominationList() async { 
         let mockJson = """
@@ -53,6 +83,13 @@ class HomeViewModel_Preview: HomeViewModelProtocol {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let model = try! decoder.decode(NominationListModel.self, from: mockJson.data(using: .utf8)!)
-        items = model.data
+        var mockItems: [NominationDisplayModel] = []
+        for nominationItem in model.data {
+            let displayItem = NominationDisplayModel(nominationId: nominationItem.nominationId,
+                                                     reason: nominationItem.reason,
+                                                     name: "mock")
+            mockItems.append(displayItem)
+        }
+        items = mockItems
     }
 }

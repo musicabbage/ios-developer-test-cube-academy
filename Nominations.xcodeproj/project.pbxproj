@@ -50,6 +50,7 @@
 		8B9641832AEBAF2600614797 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641822AEBAF2600614797 /* ToastView.swift */; };
 		8B9641852AEBAF6500614797 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641842AEBAF6500614797 /* ToastModifier.swift */; };
 		8B9641882AEBB70400614797 /* SubmittedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641872AEBB70400614797 /* SubmittedView.swift */; };
+		8B96418A2AEC145600614797 /* ConfirmLeaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641892AEC145600614797 /* ConfirmLeaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		8B9641822AEBAF2600614797 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		8B9641842AEBAF6500614797 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 		8B9641872AEBB70400614797 /* SubmittedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedView.swift; sourceTree = "<group>"; };
+		8B9641892AEC145600614797 /* ConfirmLeaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLeaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 				8B026CEB2AE9CF5000E80CBA /* FormFieldView.swift */,
 				8B026CED2AE9D6DB00E80CBA /* FormTitleView.swift */,
 				8B9641752AEA68EF00614797 /* NomineesPickerView.swift */,
+				8B9641892AEC145600614797 /* ConfirmLeaveView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				1BA8D9BB2AE290D7008FBB3F /* ContentView.swift in Sources */,
 				8B9641852AEBAF6500614797 /* ToastModifier.swift in Sources */,
 				8B026CF02AE9DC0000E80CBA /* RadioButtonView.swift in Sources */,
+				8B96418A2AEC145600614797 /* ConfirmLeaveView.swift in Sources */,
 				1B8FA0862AE2BB92009E185D /* NominationsHeaderView.swift in Sources */,
 				8B026CE92AE9C67700E80CBA /* NominationForm.swift in Sources */,
 				1B8FA0832AE2B69A009E185D /* HeaderBarView.swift in Sources */,

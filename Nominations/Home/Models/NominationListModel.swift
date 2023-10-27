@@ -31,11 +31,16 @@ struct NominationListModel: Decodable {
     let data: [Item]
 }
 
-extension NominationListModel.Item {
-    static let mock: NominationListModel.Item = .init(nominationId: "xxx",
-                                                      nomineeId: "yyy",
-                                                      reason: "Always goes above and...",
-                                                      process: "very_fair",
-                                                      dateSubmitted: "2023-10-24",
-                                                      closingDate: "2023-10-25")
+struct NominationDisplayModel: Identifiable {
+    var id: String { nominationId }
+    
+    let nominationId: String
+    let reason: String
+    let name: String
+}
+
+extension NominationDisplayModel {
+    static let mock: NominationDisplayModel = .init(nominationId: "yyy",
+                                                    reason: "Always goes above and...",
+                                                    name: "Cube")
 }
