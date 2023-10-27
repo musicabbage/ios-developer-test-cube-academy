@@ -14,14 +14,15 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
     @ObservedObject private var viewModel: ViewModel
     @State private var saveButtonState: ButtonState = .inactive
     @State private var toast: ToastModel? = nil
+    @State private var showConfirmView: Bool = false
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
-        VStack {
-            ZStack {
+        ZStack {
+            VStack {
                 ScrollView {
                     Image(.formHeader)
                         .resizable()
@@ -48,22 +49,32 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
                     }
                     .padding(.horizontal, 16)
                 }
-            }
-            HStack(spacing: 14) {
-                Spacer()
-                CubeButton(state: .constant(.active), type: .secondary, title: "Back") {
-                    
+                
+                HStack(spacing: 14) {
+                    Spacer()
+                    CubeButton(state: .constant(.active),
+                               type: .secondary,
+                               title: "Back",
+                               action: { showConfirmView = true })
+                    CubeButton(state: $saveButtonState,
+                               type: .primary,
+                               title: "Next",
+                               action: sendNomination)
+                        .containerRelativeFrame(.horizontal, count: 5, span: 3, spacing: 0)
+                    Spacer()
                 }
-                CubeButton(state: $saveButtonState, type: .primary, title: "Next", action: sendNomination)
-                    .containerRelativeFrame(.horizontal, count: 5, span: 3, spacing: 0)
-                Spacer()
+                .frame(maxHeight: 91.38)
+                .background(
+                    Rectangle()
+                        .fill(Color.white)
+                        .shadow(.strong)
+                        .ignoresSafeArea()
+                )
             }
-            .frame(maxHeight: 91.38)
-            .background(
-                Rectangle()
-                    .fill(Color.white)
-                    .shadow(.strong)
-            )
+            if showConfirmView {
+                ConfirmLeaveView()
+                    .onTapButton(perform: onTapConfirmViewAction(_:))
+            }
         }
         .onChange(of: viewModel.canSave, onCanSendChanged)
         .onChange(of: viewModel.errorMessage, showErrorMessage)
@@ -94,6 +105,15 @@ private extension NominationForm {
     func showErrorMessage() {
         guard let errorMessage = viewModel.errorMessage else { return }
         toast = ToastModel(message: errorMessage)
+    }
+    
+    func onTapConfirmViewAction(_ action: ConfirmLeaveView.Action) {
+        switch action {
+        case .leave:
+            router.navigateBack()
+        case .cancel:
+            showConfirmView = false
+        }
     }
 }
 
