@@ -44,6 +44,7 @@
 		8B9641762AEA68EF00614797 /* NomineesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641752AEA68EF00614797 /* NomineesPickerView.swift */; };
 		8B9641792AEA6AFA00614797 /* NomineeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641782AEA6AFA00614797 /* NomineeListModel.swift */; };
 		8B96417B2AEAF9B000614797 /* NominationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96417A2AEAF9B000614797 /* NominationViewModel.swift */; };
+		8B96417E2AEB2E5D00614797 /* NomineesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96417D2AEB2E5D00614797 /* NomineesListManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		8B9641752AEA68EF00614797 /* NomineesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineesPickerView.swift; sourceTree = "<group>"; };
 		8B9641782AEA6AFA00614797 /* NomineeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineeListModel.swift; sourceTree = "<group>"; };
 		8B96417A2AEAF9B000614797 /* NominationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationViewModel.swift; sourceTree = "<group>"; };
+		8B96417D2AEB2E5D00614797 /* NomineesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineesListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +139,7 @@
 				8B5D86682AE87C5400649B28 /* Home */,
 				8B026CE72AE9C65D00E80CBA /* NominationForm */,
 				8B5D865F2AE8450400649B28 /* Common */,
-				8B5D86542AE8210F00649B28 /* Networking */,
+				8B96417C2AEB2DC600614797 /* Tools */,
 				1B8FA0842AE2B69E009E185D /* Components */,
 				1BA8D9DE2AE29652008FBB3F /* Resources */,
 				1BA8D9BE2AE290DA008FBB3F /* Preview Content */,
@@ -270,6 +272,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8B96417C2AEB2DC600614797 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				8B96417D2AEB2E5D00614797 /* NomineesListManager.swift */,
+				8B5D86542AE8210F00649B28 /* Networking */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,6 +378,7 @@
 				1B8FA0832AE2B69A009E185D /* HeaderBarView.swift in Sources */,
 				8B026CE62AE9C37C00E80CBA /* NominationsRouter.swift in Sources */,
 				8B026CDE2AE9793100E80CBA /* NominationListModel.swift in Sources */,
+				8B96417E2AEB2E5D00614797 /* NomineesListManager.swift in Sources */,
 				8B026CEE2AE9D6DB00E80CBA /* FormTitleView.swift in Sources */,
 				1BA8D9B92AE290D7008FBB3F /* NominationsApp.swift in Sources */,
 				1BA8D9E82AE29B3B008FBB3F /* TextStyle+Styles.swift in Sources */,
