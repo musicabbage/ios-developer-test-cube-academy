@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
     @ObservedObject private var viewModel: ViewModel
+    @State private var toast: ToastModel? = nil
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -62,11 +63,20 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
                     .shadow(.strong)
             )
         }
+        .onChange(of: viewModel.errorMessage, showErrorMessage)
+        .toastView($toast)
         .navigationTitle("Create a nomination")
         .toolbarColorScheme(.dark, for: .navigationBar)
         .toolbarBackground(Color.black, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarBackButtonHidden(true)
+    }
+}
+
+private extension NominationForm {
+    func showErrorMessage() {
+        guard let errorMessage = viewModel.errorMessage else { return }
+        toast = ToastModel(message: errorMessage)
     }
 }
 

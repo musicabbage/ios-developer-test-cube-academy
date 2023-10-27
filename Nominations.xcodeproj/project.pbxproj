@@ -46,6 +46,8 @@
 		8B9641792AEA6AFA00614797 /* NomineeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641782AEA6AFA00614797 /* NomineeListModel.swift */; };
 		8B96417B2AEAF9B000614797 /* NominationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96417A2AEAF9B000614797 /* NominationViewModel.swift */; };
 		8B96417E2AEB2E5D00614797 /* NomineesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96417D2AEB2E5D00614797 /* NomineesListManager.swift */; };
+		8B9641832AEBAF2600614797 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641822AEBAF2600614797 /* ToastView.swift */; };
+		8B9641852AEBAF6500614797 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641842AEBAF6500614797 /* ToastModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		8B9641782AEA6AFA00614797 /* NomineeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineeListModel.swift; sourceTree = "<group>"; };
 		8B96417A2AEAF9B000614797 /* NominationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationViewModel.swift; sourceTree = "<group>"; };
 		8B96417D2AEB2E5D00614797 /* NomineesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineesListManager.swift; sourceTree = "<group>"; };
+		8B9641822AEBAF2600614797 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		8B9641842AEBAF6500614797 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 		1B8FA0842AE2B69E009E185D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8B9641812AEBAF0F00614797 /* ToastView */,
 				1B8FA0822AE2B69A009E185D /* HeaderBarView.swift */,
 				1B8FA0852AE2BB92009E185D /* NominationsHeaderView.swift */,
 				8B626AB72AE88A09001CF285 /* CubeButton.swift */,
@@ -284,6 +289,15 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		8B9641812AEBAF0F00614797 /* ToastView */ = {
+			isa = PBXGroup;
+			children = (
+				8B9641822AEBAF2600614797 /* ToastView.swift */,
+				8B9641842AEBAF6500614797 /* ToastModifier.swift */,
+			);
+			path = ToastView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,9 +387,11 @@
 				8B96417B2AEAF9B000614797 /* NominationViewModel.swift in Sources */,
 				8B5D865A2AE8214A00649B28 /* NetworkService.swift in Sources */,
 				8B5D86612AE8492A00649B28 /* Logger.swift in Sources */,
+				8B9641832AEBAF2600614797 /* ToastView.swift in Sources */,
 				8B026CEC2AE9CF5000E80CBA /* FormFieldView.swift in Sources */,
 				8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */,
 				1BA8D9BB2AE290D7008FBB3F /* ContentView.swift in Sources */,
+				8B9641852AEBAF6500614797 /* ToastModifier.swift in Sources */,
 				8B026CF02AE9DC0000E80CBA /* RadioButtonView.swift in Sources */,
 				1B8FA0862AE2BB92009E185D /* NominationsHeaderView.swift in Sources */,
 				8B026CE92AE9C67700E80CBA /* NominationForm.swift in Sources */,
