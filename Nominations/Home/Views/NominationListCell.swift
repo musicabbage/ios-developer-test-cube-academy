@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct NominationListCell: View {
-    let item: NominationListModel.Item
+    let item: NominationDisplayModel
     
     var body: some View {
         VStack(alignment: .leading, content: {
-            Text(item.nomineeId)
+            Text(item.name)
                 .foregroundStyle(Color.black)
                 .style(.bodyBold)
             Text(item.reason)

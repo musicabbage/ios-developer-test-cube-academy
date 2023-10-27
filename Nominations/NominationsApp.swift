@@ -21,11 +21,13 @@ struct NominationsApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.navPath) {
-                HomeView(viewModel: HomeViewModel(networkService: networkService))
+                HomeView(viewModel: HomeViewModel(networkService: networkService,
+                                                  nomineeListManager: nomineeListManager))
                     .navigationDestination(for: NominationsRouter.Destination.self) { destination in
                         switch destination {
                         case .home:
-                            HomeView(viewModel: HomeViewModel(networkService: networkService))
+                            HomeView(viewModel: HomeViewModel(networkService: networkService,
+                                                              nomineeListManager: nomineeListManager))
                         case .NominationForm:
                             NominationForm(viewModel: NominationViewModel(networkService: networkService, nomineeListManager: nomineeListManager))
                         case .NominationSubmitted:
