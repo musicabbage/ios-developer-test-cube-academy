@@ -18,11 +18,18 @@ enum ButtonState {
 
 struct CubeButton: View {
     
-    @State var state: ButtonState = .active
+    @Binding private var state: ButtonState
     
     let type: ButtonType
     let title: String
     let action: () -> Void
+    
+    init(state: Binding<ButtonState>, type: ButtonType, title: String, action: @escaping () -> Void) {
+        self._state = state
+        self.type = type
+        self.title = title
+        self.action = action
+    }
     
     var body: some View {
         Button(action: action, label: {
@@ -37,7 +44,6 @@ struct CubeButton: View {
         .disabled(state != .active)
         .buttonStyle(CubeButtonStyle(state: state, type: type))
         .frame(maxWidth: .infinity)
-        .padding(24)
     }
 }
 
@@ -77,5 +83,5 @@ private struct CubeButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    CubeButton(type: .secondary, title: "cabbage", action: {})
+    CubeButton(state: .constant(.active), type: .secondary, title: "cabbage", action: {})
 }
