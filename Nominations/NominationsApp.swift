@@ -11,9 +11,12 @@ import SwiftUI
 @main
 struct NominationsApp: App {
     
-    @ObservedObject private var router = NominationsRouter()
+    @StateObject private var router: NominationsRouter = NominationsRouter()
     
-    private let networkService = NetworkService(authorisation: .init())
+    private let networkService: NetworkService = NetworkService(authorisation: .init())
+    private var nomineeListManager: NomineesListManager {
+        .init(networkService: networkService)
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -24,9 +27,9 @@ struct NominationsApp: App {
                         case .home:
                             HomeView(viewModel: HomeViewModel(networkService: networkService))
                         case .NominationForm:
-                            EmptyView()
+                            NominationForm(viewModel: NominationViewModel(networkService: networkService, nomineeListManager: nomineeListManager))
                         case .NominationSubmitted:
-                            EmptyView()
+                            SubmittedView()
                         }
                     }
             }

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct SubmittedView: View {
     
+    @EnvironmentObject private var router: NominationsRouter
+    
     var body: some View {
         VStack {
             Image(.submittedHeader)
@@ -51,9 +53,11 @@ struct SubmittedView: View {
 
 private extension SubmittedView {
     func backToHome() {
+        router.navigateToRoot()
     }
     
     func createNewNomination() {
+        router.navigate(to: .NominationForm)
     }
 }
 
