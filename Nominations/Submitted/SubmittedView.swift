@@ -41,6 +41,7 @@ struct SubmittedView: View {
                 Rectangle()
                     .fill(Color.white)
                     .shadow(.strong)
+                    .ignoresSafeArea()
             )
         }
         .navigationTitle("Nomination Submitted")
