@@ -44,6 +44,7 @@ struct CubeButton: View {
         .disabled(state != .active)
         .buttonStyle(CubeButtonStyle(state: state, type: type))
         .frame(maxWidth: .infinity)
+        .clipped()
     }
 }
 
