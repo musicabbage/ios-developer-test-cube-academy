@@ -10,9 +10,32 @@ import SwiftUI
 
 @main
 struct NominationsApp: App {
+    
+    @StateObject private var router: NominationsRouter = NominationsRouter()
+    
+    private let networkService: NetworkService = NetworkService(authorisation: .init())
+    private var nomineeListManager: NomineesListManager {
+        .init(networkService: networkService)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $router.navPath) {
+                HomeView(viewModel: HomeViewModel(networkService: networkService,
+                                                  nomineeListManager: nomineeListManager))
+                    .navigationDestination(for: NominationsRouter.Destination.self) { destination in
+                        switch destination {
+                        case .home:
+                            HomeView(viewModel: HomeViewModel(networkService: networkService,
+                                                              nomineeListManager: nomineeListManager))
+                        case .NominationForm:
+                            NominationForm(viewModel: NominationViewModel(networkService: networkService, nomineeListManager: nomineeListManager))
+                        case .NominationSubmitted:
+                            SubmittedView()
+                        }
+                    }
+            }
+            .environmentObject(router)
         }
     }
 }
