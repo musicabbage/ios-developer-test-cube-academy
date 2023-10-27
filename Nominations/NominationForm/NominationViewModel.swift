@@ -48,8 +48,6 @@ private extension NominationViewModel {
                   receiveValue: { [weak self] nomineeListModel in
                 guard let self else { return }
                 self.nomineesList = nomineeListModel.data
-                self.nomineeIndex -= 1
-                print("\(self.nomineesList.count)")
             })
             .store(in: &cancellables)
     }
