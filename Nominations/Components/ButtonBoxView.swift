@@ -16,6 +16,7 @@ struct ButtonBoxView: View {
     var body: some View {
         HStack {
             CubeButton(type: type, title: title, action: action)
+                .padding(24)
                 .frame(maxWidth: .infinity)
         }
         .background(Color.white)

@@ -8,44 +8,36 @@
 
 import SwiftUI
 
+
+
 struct NomineesPickerView: View {
     typealias NomineeModel = NomineeListModel.Item
     
-    @State var nominees: [NomineeModel]
-    @Binding private var selectedNomineeId: String?
+    @Binding var nominees: [NomineeModel]
+    @Binding private var selectedNomineeIndex: Int
     
-    private let nomineesList: [String]
-    private let nomineesMap: [String: NomineeModel]
-    
-    init(nominees: [NomineeModel] = [], selectedNomineeId: Binding<String?>) {
-        self.nominees = nominees
-        self._selectedNomineeId = selectedNomineeId
-        
-        var nomineesList = [String]()
-        var nomineesMap = [String: NomineeModel]()
-        for nominee in nominees {
-            nomineesList.append(nominee.id)
-            nomineesMap[nominee.id] = nominee
-        }
-        self.nomineesList = nomineesList
-        self.nomineesMap = nomineesMap
+    init(nominees: Binding<[NomineeModel]>, selectedNomineeIndex: Binding<Int>) {
+        self._nominees = nominees
+        self._selectedNomineeIndex = selectedNomineeIndex
     }
     
     var body: some View {
         Menu {
-            Picker(selection: $selectedNomineeId) {
-                ForEach(0..<nomineesList.count, id: \.self) { index in
-                    let nominee = nomineesMap[nomineesList[index]]
-                    Text(nominee != nil ? "\(nominee!.firstName) \(nominee!.lastName)" : "?_____?")
+            Picker(selection: $selectedNomineeIndex) {
+                ForEach(0..<nominees.count, id: \.self) { index in
+                    let nominee = nominees[index]
+                    Text("\(nominee.firstName) \(nominee.lastName)").tag(index)
                 }
             } label: { 
                 Text("Select a nominee")
             }
         } label: {
-            Text("Select Option")
+            Text(selectedNomineeIndex < 0 ? "Select Option" :
+                    "\(nominees[selectedNomineeIndex].firstName) \(nominees[selectedNomineeIndex].lastName)")
                 .style(.body)
+                .frame(height: 55)
                 .foregroundColor(.black)
-                .padding(13)
+                .padding(.horizontal, 13)
             Spacer()
             Image(.dropdownArrow)
                 .padding(.horizontal, 19)
@@ -55,5 +47,5 @@ struct NomineesPickerView: View {
 }
 
 #Preview {
-    NomineesPickerView(nominees: NomineeListModel.mock.data, selectedNomineeId: .constant(nil))
+    NomineesPickerView(nominees: .constant(NomineeListModel.mock.data), selectedNomineeIndex: .constant(1))
 }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct NomineeListModel: Decodable {
-    struct Item: Decodable {
+struct NomineeListModel: Codable {
+    struct Item: Codable, Identifiable {
         let nomineeId: String
         let firstName: String
         let lastName: String

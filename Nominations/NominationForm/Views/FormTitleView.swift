@@ -15,9 +15,12 @@ struct FormTitleView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8, content: {
             Text(title)
+                .textCase(.uppercase)
                 .style(.boldHeadlineSmall)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Text(description)
                 .style(.body)
+                .frame(maxWidth: .infinity, alignment: .leading)
         })
     }
 }
