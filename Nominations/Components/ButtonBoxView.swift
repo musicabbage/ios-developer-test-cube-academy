@@ -15,7 +15,7 @@ struct ButtonBoxView: View {
     
     var body: some View {
         HStack {
-            CubeButton(type: type, title: title, action: action)
+            CubeButton(state: .constant(.active), type: type, title: title, action: action)
                 .padding(24)
                 .frame(maxWidth: .infinity)
         }

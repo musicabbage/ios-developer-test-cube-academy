@@ -15,6 +15,7 @@ struct TargetAPI {
     enum BodySchema {
         case plain
         case requestJSONEncodable(Encodable)
+        case requestJSONObject(Any)
         case requestMultipleDataForm(MultipleBodyDataForm)
     }
     
@@ -60,7 +61,15 @@ struct NetworkService: NetworkServiceProtocol {
                 let authToken = await authorisation.authToken()
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.setValue("Bearer \(authToken)", forHTTPHeaderField: "Authorization")
-                request.httpBody = try JSONEncoder().encode(encodable)
+                let jsonEncoder = JSONEncoder()
+                jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+                request.httpBody = try jsonEncoder.encode(encodable)
+            case let .requestJSONObject(jsonObject):
+                let authToken = await authorisation.authToken()
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue("Bearer \(authToken)", forHTTPHeaderField: "Authorization")
+                let jsonData = try JSONSerialization.data(withJSONObject: jsonObject)
+                request.httpBody = jsonData
             case let .requestMultipleDataForm(form):
                 request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
                 request.httpBody = form.encode()
