@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView<ViewModel: HomeViewModelProtocol>: View {
     
+    @EnvironmentObject private var router: NominationsRouter
     @ObservedObject private var viewModel: ViewModel
     
     init(viewModel: ViewModel) {
@@ -36,7 +37,9 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                     })
                 }
             }
-            ButtonBoxView(type: .primary, title: "create NEW NOMINATION") { }
+            ButtonBoxView(type: .primary, title: "create NEW NOMINATION") { 
+                router.navigate(to: .NominationForm)
+            }
         }
         .background(.cubeLightGrey)
     }

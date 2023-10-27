@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
+    
+    @EnvironmentObject private var router: NominationsRouter
     @ObservedObject private var viewModel: ViewModel
     @State private var saveButtonState: ButtonState = .inactive
     @State private var toast: ToastModel? = nil
@@ -82,6 +84,7 @@ private extension NominationForm {
             success = await viewModel.nominate()
         }
         saveButtonState = success ? .inactive : .active
+        router.navigate(to: .NominationSubmitted)
     }
     
     func onCanSendChanged() {

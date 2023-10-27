@@ -49,6 +49,7 @@
 		8B9641802AEB645C00614797 /* NominationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96417F2AEB645C00614797 /* NominationResponse.swift */; };
 		8B9641832AEBAF2600614797 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641822AEBAF2600614797 /* ToastView.swift */; };
 		8B9641852AEBAF6500614797 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641842AEBAF6500614797 /* ToastModifier.swift */; };
+		8B9641882AEBB70400614797 /* SubmittedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641872AEBB70400614797 /* SubmittedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		8B96417F2AEB645C00614797 /* NominationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationResponse.swift; sourceTree = "<group>"; };
 		8B9641822AEBAF2600614797 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		8B9641842AEBAF6500614797 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
+		8B9641872AEBB70400614797 /* SubmittedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				1BA8D9BA2AE290D7008FBB3F /* ContentView.swift */,
 				8B5D86682AE87C5400649B28 /* Home */,
 				8B026CE72AE9C65D00E80CBA /* NominationForm */,
+				8B9641862AEBB65B00614797 /* Submitted */,
 				8B5D865F2AE8450400649B28 /* Common */,
 				8B96417C2AEB2DC600614797 /* Tools */,
 				1B8FA0842AE2B69E009E185D /* Components */,
@@ -301,6 +304,14 @@
 			path = ToastView;
 			sourceTree = "<group>";
 		};
+		8B9641862AEBB65B00614797 /* Submitted */ = {
+			isa = PBXGroup;
+			children = (
+				8B9641872AEBB70400614797 /* SubmittedView.swift */,
+			);
+			path = Submitted;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -412,6 +423,7 @@
 				8B9641762AEA68EF00614797 /* NomineesPickerView.swift in Sources */,
 				8B5D865C2AE8446400649B28 /* MultipleBodyDataForm.swift in Sources */,
 				8B026CE02AE980EF00E80CBA /* NominationListCell.swift in Sources */,
+				8B9641882AEBB70400614797 /* SubmittedView.swift in Sources */,
 				1BA8D9CD2AE294B3008FBB3F /* FigmaShadow+Shadows.swift in Sources */,
 				8B026CD72AE970A200E80CBA /* HomeView.swift in Sources */,
 				8B9641802AEB645C00614797 /* NominationResponse.swift in Sources */,
