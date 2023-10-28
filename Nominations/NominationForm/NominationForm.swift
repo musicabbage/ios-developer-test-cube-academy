@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CubeFoundationSwiftUI
 
 struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
     
@@ -29,12 +30,12 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity)
                     VStack(spacing: 34) {
-                        FormTitleView(title: "I’d like to nominate... ", description: "Please select a cube who you feel has done something honourable this month or just all round has a great work ethic.")
+                        FormTitleView(title: .string("I’d like to nominate... "), description: "Please select a cube who you feel has done something honourable this month or just all round has a great work ethic.")
                         FormFieldView(title: "Cube’s name", isRequired: true) {
                             NomineesPickerView(nominees: $viewModel.nomineesList, selectedNomineeIndex: $viewModel.nomineeIndex)
                         }
-                        
-                        FormTitleView(title: "I’d like to nominate THIS CUBE BECAUSE...", description: "Please let us know why you think this cube deserves the ‘cube of the month’ title 🏆⭐")
+                        Divider()
+                        FormTitleView(title: .string("I’d like to nominate THIS CUBE BECAUSE..."), description: "Please let us know why you think this cube deserves the ‘cube of the month’ title 🏆⭐")
                             .frame(maxWidth: .infinity)
                         FormFieldView(title: "Reasoning", isRequired: true) {
                             TextEditor(text: $viewModel.reason)
@@ -42,10 +43,11 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
                                 .border(.cubeDarkGrey, width: 1)
                                 .frame(minHeight: 207)
                         }
-                        
-                        FormTitleView(title: "IS HOW WE CURRENTLY RUN CUBE OF THE MONTH FAIR?", description: "As you know, out the nominees chosen, we spin a wheel to pick the cube of the month. What’s your opinion on this method?")
+                        Divider()
+                        FormTitleView(title: .attributedString(getProcessAttributedTitle()), description: "As you know, out the nominees chosen, we spin a wheel to pick the cube of the month. What’s your opinion on this method?")
                         
                         RadioButtonView(items: RadioButtonView.RadioItem.processOptions, selectedId: $viewModel.process)
+                            .padding(.bottom, 70)
                     }
                     .padding(.horizontal, 16)
                 }
@@ -114,6 +116,33 @@ private extension NominationForm {
         case .cancel:
             showConfirmView = false
         }
+    }
+    
+    func getProcessAttributedTitle() -> AttributedString {
+        /**
+         "IS HOW WE CURRENTLY RUN CUBE OF THE MONTH FAIR?"
+         
+         font(style.font.weight(style.weight))
+         .tracking(style.letter)
+         .underline(style.underline)
+         .lineSpacing(style.lineSpacing)
+         .padding(.vertical, style.lineSpacing / 2)
+         */
+        let textStyle = TextStyle.boldHeadlineSmall
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = textStyle.lineSpacing
+        let titleAttributes = AttributeContainer([
+            .font: textStyle.font,
+            .tracking: textStyle.letter,
+            .paragraphStyle: paragraphStyle
+        ])
+        var title = AttributedString("IS HOW WE CURRENTLY RUN", attributes: titleAttributes)
+        title.foregroundColor = .black
+        var highlightText = AttributedString(" CUBE OF THE MONTH", attributes: titleAttributes)
+        highlightText.foregroundColor = .cubePink
+        title.append(highlightText)
+        title.append(AttributedString(" FAIR?"))
+        return title
     }
 }
 
