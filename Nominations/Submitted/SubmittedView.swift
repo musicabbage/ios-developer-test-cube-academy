@@ -14,9 +14,7 @@ struct SubmittedView: View {
     
     var body: some View {
         VStack {
-            Image(.submittedHeader)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            HeaderImageView(.submittedHeader)
                 .frame(maxHeight: 212)
             VStack {
                 Text("NOMINATION SUBMITTED")

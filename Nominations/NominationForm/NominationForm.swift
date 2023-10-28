@@ -25,9 +25,7 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
         ZStack {
             VStack {
                 ScrollView {
-                    Image(.formHeader)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                    HeaderImageView(.formHeader)
                         .frame(maxWidth: .infinity)
                     VStack(spacing: 34) {
                         ForEach(Field.allCases) { field in
