@@ -49,11 +49,7 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
         .onChange(of: viewModel.canSave, onCanSendChanged)
         .onChange(of: viewModel.errorMessage, showErrorMessage)
         .toastView($toast)
-        .navigationTitle("Create a nomination")
-        .toolbarColorScheme(.dark, for: .navigationBar)
-        .toolbarBackground(Color.black, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .navigationBarBackButtonHidden(true)
+        .navigationStyle(title: "Create a nomination")
     }
 }
 

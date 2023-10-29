@@ -37,11 +37,7 @@ struct SubmittedView: View {
             }
             .buttonBoxShadow()
         }
-        .navigationTitle("Nomination Submitted")
-        .toolbarColorScheme(.dark, for: .navigationBar)
-        .toolbarBackground(Color.black, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .navigationBarBackButtonHidden(true)
+        .navigationStyle(title: "Nomination Submitted")
     }
 }
 

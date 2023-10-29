@@ -17,4 +17,12 @@ extension View {
                 .shadow(.strong)
         )
     }
+    
+    func navigationStyle(title: String) -> some View {
+        self.navigationTitle(title)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbarBackground(Color.black, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .navigationBarBackButtonHidden(true)
+    }
 }
