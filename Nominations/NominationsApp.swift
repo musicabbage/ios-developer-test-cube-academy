@@ -13,9 +13,14 @@ struct NominationsApp: App {
     
     @StateObject private var router: NominationsRouter = NominationsRouter()
     
-    private let networkService: NetworkService = NetworkService(authorisation: .init())
-    private var nomineeListManager: NomineesListManager {
-        .init(networkService: networkService)
+    private let networkService: NetworkService
+    private let nomineeListManager: NomineesListManager
+    
+    init() {
+        let defaultAuthorisation = Authorisation()
+        let networkService = NetworkService(authorisation: defaultAuthorisation)
+        self.networkService = networkService
+        self.nomineeListManager = NomineesListManager(networkService: networkService)
     }
     
     var body: some Scene {

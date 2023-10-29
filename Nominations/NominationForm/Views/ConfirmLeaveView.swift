@@ -41,12 +41,7 @@ struct ConfirmLeaveView: View {
                         .padding(.horizontal, 24)
                         .padding(.bottom, 24.69)
                 }
-                .background(
-                    Rectangle()
-                        .fill(Color.white)
-                        .shadow(.strong)
-                        .ignoresSafeArea()
-                )
+                .buttonBoxShadow()
             })
             .background(Color.white)
         })
