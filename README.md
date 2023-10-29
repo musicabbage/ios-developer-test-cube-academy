@@ -1,9 +1,9 @@
 ## What to improve:
-- [ ] Refactor `NomineesListManager` to conform to a protocol-based structure.
-- [ ] Fix the UI of `NominationForm` by:
+- [x] Refactor `NomineesListManager` to conform to a protocol-based structure. (PR: https://github.com/musicabbage/ios-developer-test-cube-academy/pull/9)
+- [x] Fix the UI of `NominationForm` by:
     - Highlighting texts for the "process" field's title.
-    - Adding a divider between form fields.
-- [ ] Extract duplicate UI code into properties or extensions.
+    - Adding a divider between form fields.(PR: https://github.com/musicabbage/ios-developer-test-cube-academy/pull/9)
+- [x] Extract duplicate UI code into properties or extensions. (PR: https://github.com/musicabbage/ios-developer-test-cube-academy/pull/9)
 - [ ] Add animations to `ConfirmLeaveView`.
 - [ ] Enhance error handling. (Needs more details)
 
