@@ -38,14 +38,13 @@ struct ConfirmLeaveView: View {
                     CubeButton(state: .constant(.active),
                                type: .secondary,
                                title: "Cancel", action: { actionClosure(.cancel) })
-                        .padding(.horizontal, 24)
-                        .padding(.bottom, 24.69)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 24.69)
                 }
                 .buttonBoxShadow()
             })
             .background(Color.white)
         })
-        .ignoresSafeArea()
         .background(
             Rectangle()
                 .fill(Color.black)

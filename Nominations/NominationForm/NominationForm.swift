@@ -41,13 +41,14 @@ struct NominationForm<ViewModel: NominationViewModelProtocol>: View {
                 
                 stickyButtonsView
             }
-            if showConfirmView {
-                ConfirmLeaveView()
-                    .onTapButton(perform: onTapConfirmViewAction(_:))
-            }
         }
         .onChange(of: viewModel.canSave, onCanSendChanged)
         .onChange(of: viewModel.errorMessage, showErrorMessage)
+        .sheet(isPresented: $showConfirmView, content: { 
+            ConfirmLeaveView()
+                .onTapButton(perform: onTapConfirmViewAction(_:))
+                .presentationBackground(.clear)
+        })
         .toastView($toast)
         .navigationStyle(title: "Create a nomination")
     }
