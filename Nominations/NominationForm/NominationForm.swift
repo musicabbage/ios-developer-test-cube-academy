@@ -185,33 +185,6 @@ private extension NominationForm {
             showConfirmView = false
         }
     }
-    
-    func getProcessAttributedTitle() -> AttributedString {
-        /**
-         "IS HOW WE CURRENTLY RUN CUBE OF THE MONTH FAIR?"
-         
-         font(style.font.weight(style.weight))
-         .tracking(style.letter)
-         .underline(style.underline)
-         .lineSpacing(style.lineSpacing)
-         .padding(.vertical, style.lineSpacing / 2)
-         */
-        let textStyle = TextStyle.boldHeadlineSmall
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = textStyle.lineSpacing
-        let titleAttributes = AttributeContainer([
-            .font: textStyle.font,
-            .tracking: textStyle.letter,
-            .paragraphStyle: paragraphStyle
-        ])
-        var title = AttributedString("IS HOW WE CURRENTLY RUN", attributes: titleAttributes)
-        title.foregroundColor = .black
-        var highlightText = AttributedString(" CUBE OF THE MONTH", attributes: titleAttributes)
-        highlightText.foregroundColor = .cubePink
-        title.append(highlightText)
-        title.append(AttributedString(" FAIR?"))
-        return title
-    }
 }
 
 #Preview {
