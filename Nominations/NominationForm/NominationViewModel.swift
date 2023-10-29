@@ -53,7 +53,7 @@ class NominationViewModel: NominationViewModelProtocol {
         let api = TargetAPI(method: .post, bodySchema: .requestJSONObject(requestData), path: "nomination")
         let result = await networkService.request(api, decode: NominationResponse.self)
         switch result {
-        case let .success(response):
+        case .success:
             return true
         case let .failure(error):
             showErrorMessage(error.localizedDescription)
