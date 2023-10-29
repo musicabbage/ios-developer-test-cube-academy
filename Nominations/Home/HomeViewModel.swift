@@ -11,6 +11,7 @@ import Combine
 
 protocol HomeViewModelProtocol: ObservableObject {
     var items: [NominationDisplayModel] { get }
+    var errorMessage: String? { get }
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -76,8 +77,9 @@ private extension HomeViewModel {
     }
 }
 
-class HomeViewModel_Preview: HomeViewModelProtocol {
+class HomeViewModel_Preview: HomeViewModelProtocol {    
     @Published var items: [NominationDisplayModel] = []
+    @Published var errorMessage: String?
     
     init() {
         fetchNominationList()

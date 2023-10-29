@@ -12,6 +12,7 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
     
     @EnvironmentObject private var router: NominationsRouter
     @ObservedObject private var viewModel: ViewModel
+    @State private var toast: ToastModel? = nil
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -41,7 +42,15 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                 router.navigate(to: .NominationForm)
             }
         }
+        .toastView($toast)
         .background(.cubeLightGrey)
+    }
+}
+
+private extension HomeView {
+    func showErrorMessage() {
+        guard let errorMessage = viewModel.errorMessage else { return }
+        toast = ToastModel(message: errorMessage)
     }
 }
 
