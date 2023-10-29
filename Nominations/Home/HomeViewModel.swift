@@ -19,7 +19,7 @@ class HomeViewModel: HomeViewModelProtocol {
     @Published var items: [NominationDisplayModel] = []
     @Published var errorMessage: String?
     
-    private let nominationListSubject: PassthroughSubject<NominationListModel, Error> = .init()
+    private let nominationListSubject: PassthroughSubject<NominationListModel, CubeError> = .init()
     private let networkService: NetworkServiceProtocol
     private let nomineeListManager: NomineesListManagerProtocol
     private var cancellable: AnyCancellable?
@@ -72,7 +72,7 @@ private extension HomeViewModel {
         case let .success(result):
             nominationListSubject.send(result)
         case let .failure(error):
-            nominationListSubject.send(completion: .failure(error))
+            nominationListSubject.send(completion: .failure(.fetchNominationsFail(error)))
         }
     }
 }

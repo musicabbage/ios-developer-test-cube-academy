@@ -10,16 +10,16 @@ import Foundation
 import Combine
 
 protocol NomineesListManagerProtocol {
-    var nomineeListPublisher: AnyPublisher<NomineeListModel, Error> { get }
+    var nomineeListPublisher: AnyPublisher<NomineeListModel, CubeError> { get }
 }
 
 struct NomineesListManager: NomineesListManagerProtocol {
     private let localFilePath = URL.documentsDirectory.appending(path: ".nominees")
     private let ioQueue = DispatchQueue(label: "com.nominations.nomineeslistmanager", qos: .default)
     private let networkService: NetworkService
-    private let nomineeListSubject: CurrentValueSubject<NomineeListModel, Error> = .init(NomineeListModel(data: []))
+    private let nomineeListSubject: CurrentValueSubject<NomineeListModel, CubeError> = .init(NomineeListModel(data: []))
     
-    let nomineeListPublisher: AnyPublisher<NomineeListModel, Error>
+    let nomineeListPublisher: AnyPublisher<NomineeListModel, CubeError>
     
     init(networkService: NetworkService) {
         self.networkService = networkService
@@ -40,7 +40,7 @@ private extension NomineesListManager {
                 saveNomineeListToLocal(model: model)
             case let .failure(error):
                 if nomineeListSubject.value.data.isEmpty {
-                    nomineeListSubject.send(completion: .failure(error))
+                    nomineeListSubject.send(completion: .failure(.fetchNomineesFail(error)))
                 }
             }
         }
