@@ -75,12 +75,7 @@ private extension NominationForm {
             Spacer()
         }
         .frame(maxHeight: 91.38)
-        .background(
-            Rectangle()
-                .fill(Color.white)
-                .shadow(.strong)
-                .ignoresSafeArea()
-        )
+        .buttonBoxShadow()
     }
 }
 

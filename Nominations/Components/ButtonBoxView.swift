@@ -20,7 +20,7 @@ struct ButtonBoxView: View {
                 .frame(maxWidth: .infinity)
         }
         .background(Color.white)
-        .shadow(.strong)
+        .buttonBoxShadow()
     }
 }
 
