@@ -16,7 +16,7 @@ protocol NomineesListManagerProtocol {
 struct NomineesListManager: NomineesListManagerProtocol {
     private let localFilePath = URL.documentsDirectory.appending(path: ".nominees")
     private let networkService: NetworkService
-    private let nomineeListSubject: PassthroughSubject<NomineeListModel, Error> = .init()
+    private let nomineeListSubject: CurrentValueSubject<NomineeListModel, Error> = .init(NomineeListModel(data: []))
     
     let nomineeListPublisher: AnyPublisher<NomineeListModel, Error>
     
