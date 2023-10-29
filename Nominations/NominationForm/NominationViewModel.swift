@@ -40,6 +40,7 @@ class NominationViewModel: NominationViewModelProtocol {
     }
     
     func nominate() async -> Bool {
+        errorMessage = nil
         guard let process, 0 ..< nomineesList.count ~= nomineeIndex else { return false }
         /**
          "nominee_id": "9a4bd093-eb49-479d-aad4-d9f793c6d2bd",
