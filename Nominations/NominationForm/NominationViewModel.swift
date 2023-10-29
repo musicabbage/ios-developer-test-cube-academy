@@ -57,7 +57,12 @@ class NominationViewModel: NominationViewModelProtocol {
         case .success:
             return true
         case let .failure(error):
-            showErrorMessage(error.localizedDescription)
+            var message = "Submit nomination failed."
+            if case let .cubeResponseError(errorModel) = error,
+               let errorMessage = errorModel?.message {
+                message += "\n\(errorMessage)"
+            }
+            showErrorMessage(message)
             return false
         }
     }

@@ -161,12 +161,14 @@ private extension NominationForm {
     
     func sendNomination() {
         saveButtonState = .loading
-        var success = false
         Task {
-            success = await viewModel.nominate()
+            let success = await viewModel.nominate()
+            
+            saveButtonState = success ? .inactive : .active
+            if success {
+                router.navigate(to: .NominationSubmitted)
+            }
         }
-        saveButtonState = success ? .inactive : .active
-        router.navigate(to: .NominationSubmitted)
     }
     
     func onCanSendChanged() {
