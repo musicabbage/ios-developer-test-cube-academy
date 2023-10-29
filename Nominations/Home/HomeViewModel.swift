@@ -46,11 +46,18 @@ private extension HomeViewModel {
             }, receiveValue: { [weak self] nominationsList, nomineesList in
                 guard let self else { return }
                 
+                let nominees = nomineesList.data
                 self.items = nominationsList.data.reduce(into: [NominationDisplayModel](), { partialResult, nominationItem in
-                    guard let nominee = nomineesList.data.first(where: { $0.nomineeId == nominationItem.nomineeId }) else { return }
+                    
+                    let name: String
+                    if let nominee = nominees.first(where: { $0.nomineeId == nominationItem.nomineeId }) {
+                        name = "\(nominee.firstName) \(nominee.lastName)"
+                    } else {
+                        name = "Cannot find the nominee's name ?_____? "
+                    }
                     let displayModel = NominationDisplayModel(nominationId: nominationItem.nominationId,
                                                               reason: nominationItem.reason,
-                                                              name: "\(nominee.firstName) \(nominee.lastName)")
+                                                              name: name)
                     partialResult.append(displayModel)
                 })
             })

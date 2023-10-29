@@ -39,7 +39,9 @@ private extension NomineesListManager {
                 nomineeListSubject.send(model)
                 saveNomineeListToLocal(model: model)
             case let .failure(error):
-                nomineeListSubject.send(completion: .failure(error))
+                if nomineeListSubject.value.data.isEmpty {
+                    nomineeListSubject.send(completion: .failure(error))
+                }
             }
         }
     }
