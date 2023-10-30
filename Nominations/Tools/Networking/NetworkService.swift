@@ -35,7 +35,7 @@ struct TargetAPI {
 }
 
 protocol NetworkServiceProtocol {
-    func request<T: Decodable>(_ target: TargetAPI, decode: T.Type) async -> Result<T, Error>
+    func request<T: Decodable>(_ target: TargetAPI, decode: T.Type) async -> Result<T, NetworkError>
 }
 
 struct NetworkService: NetworkServiceProtocol {
@@ -47,7 +47,7 @@ struct NetworkService: NetworkServiceProtocol {
         self.authorisation = authorisation
     }
     
-    func request<T: Decodable>(_ target: TargetAPI, decode: T.Type) async -> Result<T, Error> {
+    func request<T: Decodable>(_ target: TargetAPI, decode: T.Type) async -> Result<T, NetworkError> {
         let url = target.host.url.appendingPathComponent(target.path)
         let task = Task { () -> T in
             var request = URLRequest(url: url)
@@ -74,13 +74,31 @@ struct NetworkService: NetworkServiceProtocol {
                 request.setValue(form.contentType, forHTTPHeaderField: "Content-Type")
                 request.httpBody = form.encode()
             }
-            let (data, _) = try await session.data(for: request)
+            
+            let (data, response) = try await session.data(for: request)
+            
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let model = try decoder.decode(T.self, from: data)
-            return model
+            if let response = response as? HTTPURLResponse, 200..<299 ~= response.statusCode {
+                let model = try decoder.decode(T.self, from: data)
+                return model
+            } else if let errorModel = try? decoder.decode(NetworkErrorModel.self, from: data) {
+                throw NetworkError.cubeResponseError(errorModel)
+            } else {
+                throw NetworkError.cubeResponseError(nil)
+            }
         }
         
-        return await task.result
+        let result = await task.result
+        switch result {
+        case let .success(model):
+            return .success(model)
+        case let .failure(error):
+            if let cubeError = error as? NetworkError {
+                return .failure(cubeError)
+            } else {
+                return .failure(.requestError(error))
+            }
+        }
     }
 }

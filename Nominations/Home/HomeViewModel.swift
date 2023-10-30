@@ -11,6 +11,7 @@ import Combine
 
 protocol HomeViewModelProtocol: ObservableObject {
     var items: [NominationDisplayModel] { get }
+    var errorMessage: String? { get }
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -18,7 +19,7 @@ class HomeViewModel: HomeViewModelProtocol {
     @Published var items: [NominationDisplayModel] = []
     @Published var errorMessage: String?
     
-    private let nominationListSubject: PassthroughSubject<NominationListModel, Error> = .init()
+    private let nominationListSubject: PassthroughSubject<NominationListModel, CubeError> = .init()
     private let networkService: NetworkServiceProtocol
     private let nomineeListManager: NomineesListManagerProtocol
     private var cancellable: AnyCancellable?
@@ -46,11 +47,18 @@ private extension HomeViewModel {
             }, receiveValue: { [weak self] nominationsList, nomineesList in
                 guard let self else { return }
                 
+                let nominees = nomineesList.data
                 self.items = nominationsList.data.reduce(into: [NominationDisplayModel](), { partialResult, nominationItem in
-                    guard let nominee = nomineesList.data.first(where: { $0.nomineeId == nominationItem.nomineeId }) else { return }
+                    
+                    let name: String
+                    if let nominee = nominees.first(where: { $0.nomineeId == nominationItem.nomineeId }) {
+                        name = "\(nominee.firstName) \(nominee.lastName)"
+                    } else {
+                        name = "Cannot find the nominee's name ?_____? "
+                    }
                     let displayModel = NominationDisplayModel(nominationId: nominationItem.nominationId,
                                                               reason: nominationItem.reason,
-                                                              name: "\(nominee.firstName) \(nominee.lastName)")
+                                                              name: name)
                     partialResult.append(displayModel)
                 })
             })
@@ -64,13 +72,14 @@ private extension HomeViewModel {
         case let .success(result):
             nominationListSubject.send(result)
         case let .failure(error):
-            nominationListSubject.send(completion: .failure(error))
+            nominationListSubject.send(completion: .failure(.fetchNominationsFail(error)))
         }
     }
 }
 
-class HomeViewModel_Preview: HomeViewModelProtocol {
+class HomeViewModel_Preview: HomeViewModelProtocol {    
     @Published var items: [NominationDisplayModel] = []
+    @Published var errorMessage: String?
     
     init() {
         fetchNominationList()

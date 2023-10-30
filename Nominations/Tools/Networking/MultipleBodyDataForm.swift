@@ -35,8 +35,7 @@ class MultipleBodyDataForm {
                 var buffer = [UInt8](repeating: 0, count: streamBufferSize)
                 let bytesRead = inputStream.read(&buffer, maxLength: streamBufferSize)
 
-                if let error = inputStream.streamError {
-                    
+                if inputStream.streamError != nil {
                     break
                 }
 
