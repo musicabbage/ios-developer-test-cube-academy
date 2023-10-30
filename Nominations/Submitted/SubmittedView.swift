@@ -14,9 +14,7 @@ struct SubmittedView: View {
     
     var body: some View {
         VStack {
-            Image(.submittedHeader)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            HeaderImageView(.submittedHeader)
                 .frame(maxHeight: 212)
             VStack {
                 Text("NOMINATION SUBMITTED")
@@ -37,18 +35,9 @@ struct SubmittedView: View {
                 .padding(.horizontal, 24)
                 .padding(.bottom, 24.69)
             }
-            .background(
-                Rectangle()
-                    .fill(Color.white)
-                    .shadow(.strong)
-                    .ignoresSafeArea()
-            )
+            .buttonBoxShadow()
         }
-        .navigationTitle("Nomination Submitted")
-        .toolbarColorScheme(.dark, for: .navigationBar)
-        .toolbarBackground(Color.black, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .navigationBarBackButtonHidden(true)
+        .navigationStyle(title: "Nomination Submitted")
     }
 }
 

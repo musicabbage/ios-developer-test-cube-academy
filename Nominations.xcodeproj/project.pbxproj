@@ -42,6 +42,10 @@
 		8B5D86672AE869CC00649B28 /* Authorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D86662AE869CC00649B28 /* Authorisation.swift */; };
 		8B5D866C2AE87D6B00649B28 /* HomeEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */; };
 		8B626AB82AE88A09001CF285 /* CubeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B626AB72AE88A09001CF285 /* CubeButton.swift */; };
+		8B62BBDF2AEF1219002E61C3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BBDE2AEF1219002E61C3 /* Errors.swift */; };
+		8B62BBE12AEF18A2002E61C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BBE02AEF18A2002E61C3 /* NetworkError.swift */; };
+		8B6D2C212AEDBCA4003B65EF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2C202AEDBCA4003B65EF /* Extensions.swift */; };
+		8B6D2C232AEDBFBA003B65EF /* HeaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2C222AEDBFBA003B65EF /* HeaderImageView.swift */; };
 		8B9641762AEA68EF00614797 /* NomineesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641752AEA68EF00614797 /* NomineesPickerView.swift */; };
 		8B9641792AEA6AFA00614797 /* NomineeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9641782AEA6AFA00614797 /* NomineeListModel.swift */; };
 		8B96417B2AEAF9B000614797 /* NominationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96417A2AEAF9B000614797 /* NominationViewModel.swift */; };
@@ -89,6 +93,10 @@
 		8B5D86662AE869CC00649B28 /* Authorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorisation.swift; sourceTree = "<group>"; };
 		8B5D866B2AE87D6B00649B28 /* HomeEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyStateView.swift; sourceTree = "<group>"; };
 		8B626AB72AE88A09001CF285 /* CubeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeButton.swift; sourceTree = "<group>"; };
+		8B62BBDE2AEF1219002E61C3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8B62BBE02AEF18A2002E61C3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		8B6D2C202AEDBCA4003B65EF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8B6D2C222AEDBFBA003B65EF /* HeaderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageView.swift; sourceTree = "<group>"; };
 		8B9641752AEA68EF00614797 /* NomineesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineesPickerView.swift; sourceTree = "<group>"; };
 		8B9641782AEA6AFA00614797 /* NomineeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomineeListModel.swift; sourceTree = "<group>"; };
 		8B96417A2AEAF9B000614797 /* NominationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominationViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +126,7 @@
 			children = (
 				8B9641812AEBAF0F00614797 /* ToastView */,
 				1B8FA0822AE2B69A009E185D /* HeaderBarView.swift */,
+				8B6D2C222AEDBFBA003B65EF /* HeaderImageView.swift */,
 				1B8FA0852AE2BB92009E185D /* NominationsHeaderView.swift */,
 				8B626AB72AE88A09001CF285 /* CubeButton.swift */,
 				8B026CD42AE968A200E80CBA /* ButtonBoxView.swift */,
@@ -248,6 +257,7 @@
 				8B5D86572AE8214900649B28 /* NetworkService.swift */,
 				8B5D865B2AE8446300649B28 /* MultipleBodyDataForm.swift */,
 				8B5D86662AE869CC00649B28 /* Authorisation.swift */,
+				8B62BBE02AEF18A2002E61C3 /* NetworkError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -256,6 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				8B5D86602AE8492A00649B28 /* Logger.swift */,
+				8B6D2C202AEDBCA4003B65EF /* Extensions.swift */,
+				8B62BBDE2AEF1219002E61C3 /* Errors.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -410,11 +422,14 @@
 				1BA8D9BB2AE290D7008FBB3F /* ContentView.swift in Sources */,
 				8B9641852AEBAF6500614797 /* ToastModifier.swift in Sources */,
 				8B026CF02AE9DC0000E80CBA /* RadioButtonView.swift in Sources */,
+				8B6D2C232AEDBFBA003B65EF /* HeaderImageView.swift in Sources */,
 				8B96418A2AEC145600614797 /* ConfirmLeaveView.swift in Sources */,
 				1B8FA0862AE2BB92009E185D /* NominationsHeaderView.swift in Sources */,
 				8B026CE92AE9C67700E80CBA /* NominationForm.swift in Sources */,
 				1B8FA0832AE2B69A009E185D /* HeaderBarView.swift in Sources */,
 				8B026CE62AE9C37C00E80CBA /* NominationsRouter.swift in Sources */,
+				8B62BBE12AEF18A2002E61C3 /* NetworkError.swift in Sources */,
+				8B62BBDF2AEF1219002E61C3 /* Errors.swift in Sources */,
 				8B026CDE2AE9793100E80CBA /* NominationListModel.swift in Sources */,
 				8B96417E2AEB2E5D00614797 /* NomineesListManager.swift in Sources */,
 				8B026CEE2AE9D6DB00E80CBA /* FormTitleView.swift in Sources */,
@@ -431,6 +446,7 @@
 				1BA8D9CD2AE294B3008FBB3F /* FigmaShadow+Shadows.swift in Sources */,
 				8B026CD72AE970A200E80CBA /* HomeView.swift in Sources */,
 				8B9641802AEB645C00614797 /* NominationResponse.swift in Sources */,
+				8B6D2C212AEDBCA4003B65EF /* Extensions.swift in Sources */,
 				8B5D86592AE8214A00649B28 /* BaseURL.swift in Sources */,
 				8B5D86672AE869CC00649B28 /* Authorisation.swift in Sources */,
 			);
@@ -579,7 +595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.Nominations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) LOGGING";
@@ -610,7 +626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.Nominations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

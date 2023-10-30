@@ -40,6 +40,7 @@ class NominationViewModel: NominationViewModelProtocol {
     }
     
     func nominate() async -> Bool {
+        errorMessage = nil
         guard let process, 0 ..< nomineesList.count ~= nomineeIndex else { return false }
         /**
          "nominee_id": "9a4bd093-eb49-479d-aad4-d9f793c6d2bd",
@@ -53,10 +54,15 @@ class NominationViewModel: NominationViewModelProtocol {
         let api = TargetAPI(method: .post, bodySchema: .requestJSONObject(requestData), path: "nomination")
         let result = await networkService.request(api, decode: NominationResponse.self)
         switch result {
-        case let .success(response):
+        case .success:
             return true
         case let .failure(error):
-            showErrorMessage(error.localizedDescription)
+            var message = "Submit nomination failed."
+            if case let .cubeResponseError(errorModel) = error,
+               let errorMessage = errorModel?.message {
+                message += "\n\(errorMessage)"
+            }
+            showErrorMessage(message)
             return false
         }
     }

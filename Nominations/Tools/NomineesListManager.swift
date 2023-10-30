@@ -9,12 +9,17 @@
 import Foundation
 import Combine
 
-class NomineesListManager {
+protocol NomineesListManagerProtocol {
+    var nomineeListPublisher: AnyPublisher<NomineeListModel, CubeError> { get }
+}
+
+struct NomineesListManager: NomineesListManagerProtocol {
     private let localFilePath = URL.documentsDirectory.appending(path: ".nominees")
+    private let ioQueue = DispatchQueue(label: "com.nominations.nomineeslistmanager", qos: .default)
     private let networkService: NetworkService
-    private let nomineeListSubject: PassthroughSubject<NomineeListModel, Error> = .init()
+    private let nomineeListSubject: CurrentValueSubject<NomineeListModel, CubeError> = .init(NomineeListModel(data: []))
     
-    let nomineeListPublisher: AnyPublisher<NomineeListModel, Error>
+    let nomineeListPublisher: AnyPublisher<NomineeListModel, CubeError>
     
     init(networkService: NetworkService) {
         self.networkService = networkService
@@ -34,33 +39,38 @@ private extension NomineesListManager {
                 nomineeListSubject.send(model)
                 saveNomineeListToLocal(model: model)
             case let .failure(error):
-                nomineeListSubject.send(completion: .failure(error))
+                if nomineeListSubject.value.data.isEmpty {
+                    nomineeListSubject.send(completion: .failure(.fetchNomineesFail(error)))
+                }
             }
         }
     }
     
     func saveNomineeListToLocal(model: NomineeListModel) {
-        CubeLog(localFilePath.absoluteString)
-        do {
-            let encoder = JSONEncoder()
-            encoder.keyEncodingStrategy = .convertToSnakeCase
-            let data = try encoder.encode(model)
-            try data.write(to: localFilePath)
-        } catch {
-            CubeLog(error)
+        ioQueue.async {
+            do {
+                let encoder = JSONEncoder()
+                encoder.keyEncodingStrategy = .convertToSnakeCase
+                let data = try encoder.encode(model)
+                try data.write(to: localFilePath)
+            } catch {
+                CubeLog(error)
+            }
         }
     }
     
     func readLocalNomineeList() {
         guard FileManager.default.fileExists(atPath: localFilePath.path) else { return }
-        do {
-            let localData = try Data(contentsOf: localFilePath)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let nomineeListModel = try decoder.decode(NomineeListModel.self, from: localData)
-            nomineeListSubject.send(nomineeListModel)
-        } catch {
-            CubeLog(error)
+        ioQueue.async {
+            do {
+                let localData = try Data(contentsOf: localFilePath)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let nomineeListModel = try decoder.decode(NomineeListModel.self, from: localData)
+                nomineeListSubject.send(nomineeListModel)
+            } catch {
+                CubeLog(error)
+            }
         }
     }
 }

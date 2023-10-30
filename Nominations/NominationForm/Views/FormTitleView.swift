@@ -9,15 +9,26 @@
 import SwiftUI
 
 struct FormTitleView: View {
-    let title: String
+    enum TitleString {
+        case string(String)
+        case attributedString(AttributedString)
+    }
+    
+    let title: TitleString
     let description: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8, content: {
-            Text(title)
-                .textCase(.uppercase)
-                .style(.boldHeadlineSmall)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            switch title {
+            case let .string(string):
+                Text(string)
+                    .textCase(.uppercase)
+                    .style(.boldHeadlineSmall)
+            case let .attributedString(attributedString):
+                Text(attributedString)
+                    .textCase(.uppercase)
+                    .style(.boldHeadlineSmall)
+            }
             Text(description)
                 .style(.body)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -26,5 +37,6 @@ struct FormTitleView: View {
 }
 
 #Preview {
-    FormTitleView(title: "I’d like to nominate... ", description: "Please select a cube who you feel has done something honourable this month or just all round has a great work ethic.")
+    FormTitleView(title: .string("I’d like to nominate... "),
+                  description: "Please select a cube who you feel has done something honourable this month or just all round has a great work ethic.")
 }
